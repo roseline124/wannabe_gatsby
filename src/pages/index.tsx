@@ -23,7 +23,7 @@ const BlogIndex = ({ data }: Props) => {
 
   return (
     <Layout location={window.location} title={siteTitle}>
-      <SEO title="All posts" />
+      <SEO title="유혹하는 개발하기" />
       <Bio />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
