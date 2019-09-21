@@ -18,6 +18,11 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images/`,
       },
+      resolve: "gatsby-plugin-tslint",
+      options: {
+        test: /\.ts$|\.tsx$/,
+        exclude: /(node_modules|cache|public)/,
+      },
     },
   ],
 }
