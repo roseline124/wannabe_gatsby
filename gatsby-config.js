@@ -15,13 +15,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images/`,
-      },
-      resolve: "gatsby-plugin-tslint",
-      options: {
-        test: /\.ts$|\.tsx$/,
-        exclude: /(node_modules|cache|public)/,
+        name: `assets`,
+        path: `${__dirname}/src/assets/`,
       },
     },
   ],

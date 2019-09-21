@@ -3,24 +3,28 @@ module.exports = {
     browser: true,
     es6: true,
   },
-  extends: ["standard"],
+  extends: ['standard'],
   globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly",
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
   },
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
     ecmaVersion: 2018,
-    sourceType: "module",
+    sourceType: 'module',
   },
   plugins: [
-    "react-app",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended",
-    "@typescript-eslint",
+    'react-app',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
+    '@typescript-eslint',
   ],
-  rules: {},
+  rules: {
+    quotes: [2, 'single'],
+    semi: ['error', 'never'],
+    'comma-dangle': ['error', 'always'],
+  },
 }
