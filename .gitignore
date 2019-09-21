@@ -67,8 +67,3 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
-
-# minors
-public
-node_modules
-.cache

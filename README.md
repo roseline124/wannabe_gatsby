@@ -5,50 +5,44 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby's blog starter
+  Gatsby's hello-world starter
 </h1>
 
-블로그 보일러플레이트로 빠르게 프로젝트를 시작해보세요. 개츠비 주요 설정 파일과, 리액트를 위한 빠른 앱 제네레이터를 통해 빠르게 시작할 수 있습니다. 
+Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
 
-_또 다른 아이디어를 갖고 계신가요? 우리가 만든 여러 스타터 콜렉션([official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/))이 도움이 될 지도 모르겠군요._
-
-<br>
+_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
 
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**
 
-    새로운 사이트를 만들기 위해 Gatsby CLI를 사용하세요.
-    
-    ```sh
-    # create a new Gatsby site using the blog starter
-    gatsby new my-blog-starter https://github.com/gatsbyjs/gatsby-starter-blog
+    Use the Gatsby CLI to create a new site, specifying the hello-world starter.
+
+    ```shell
+    # create a new Gatsby site using the hello-world starter
+    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
     ```
 
-<br>
+1.  **Start developing.**
 
-2.  **Start developing.**
+    Navigate into your new site’s directory and start it up.
 
-    새 사이트 폴더로 가서 아래 명령어로 시작하세요.
-
-    ```sh
-    cd my-blog-starter/
+    ```shell
+    cd my-hello-world-starter/
     gatsby develop
     ```
 
-<br>
+1.  **Open the source code and start editing!**
 
-3.  **Open the source code and start editing!**
+    Your site is now running at `http://localhost:8000`!
 
-    이제 `http://localhost:8000`에서 확인할 수 있습니다!
+    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-    _Note: 두번째 링크도 확인할 수 있습니다.: _`http://localhost:8000/___graphql`_. graphql은 데이터를 쿼리할 때 사용할 수 있는 툴입니다. graphql에 대해 더 알고싶다면 [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)를 참고하세요._
-
-    코드 에디터에서 `my-blog-starter` 폴더를 열고 `src/pages/index.js` 파일을 수정하세요. 수정할 때마다 실시간으로 업데이트된답니다! 👏
+    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
 ## 🧐 What's inside?
 
-개츠비 프로젝트의 최상위 레벨 파일과 폴더부터 빠르게 훑어봅시다.
+A quick look at the top-level files and directories you'll see in a Gatsby project.
 
     .
     ├── node_modules
@@ -64,40 +58,40 @@ _또 다른 아이디어를 갖고 계신가요? 우리가 만든 여러 스타�
     ├── package.json
     └── README.md
 
-1.  **`/node_modules`**: 개츠비 프로젝트가 의존하는 모든 모듈을 포함하는 폴더입니다. 프로젝트를 시작할 때 자동으로 설치되었을 겁니다.
+1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-2.  **`/src`**: 페이지 템플릿이나 사이트 헤더 같이, 사이트의 프론트엔드(브라우저에서 보는 것들)와 관련된 모든 코드를 포함하는 폴더입니다.`src`는 관례적으로 쓰이는 “source code”를 나타내는 준말입니다.
+2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
-3.  **`.gitignore`**: git에서 변화를 추적하지 않는 파일입니다. 이 파일에 명시된 파일이나 폴더는 수정되어도 git이 무시하므로 커밋과 푸시에서 제외시킬 수 있습니다. 그러나 버전을 관리하기는 어렵습니다.
+3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
-4.  **`.prettierrc`**: [Prettier](https://prettier.io/)의 설정 파일입니다. Prettier는 코드의 일관된 형식을 유지하는 데 도움을 주는 툴입니다.
+4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
 
-5.  **`gatsby-browser.js`**: 개츠비가 사용하는 브라우저 API([Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/))들을 찾을 수 있는 파일입니다. 브라우저에 영향을 주는 개츠비의 기본 세팅을 확장 또는 커스터마이징할 수 있습니다.
+5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
 
-6.  **`gatsby-config.js`**: 개츠비 사이트를 위한 메인 설정 파일입니다. 사이트 제목이나 설명 등 사이트 정보(메타데이터)를 구체적으로 명시할 수 있습니다. 좀 더 구체적인 사항은 [config docs](https://www.gatsbyjs.org/docs/gatsby-config/)에서 확인해보세요.
+6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
 
-7.  **`gatsby-node.js`**: 개츠비가 사용하는 node.js API([Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/))를 모아놓은 파일입니다. 사이트 빌드 과정에 영향을 주는 개츠비의 기본 세팅을 확장 또는 커스터마이징할 수 있습니다.
+7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
 
-8.  **`gatsby-ssr.js`**: 개츠비에서 사용하는 서버사이드 렌더링 API([Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/))를 확인할 수 있습니다. 서버사이드 렌더링에 영향을 주는 개츠비의 기본 세팅을 확장 또는 커스터마이징할 수 있습니다.
+8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
 
-9.  **`LICENSE`**: 개츠비는 MIT 라이센스를 보유하고 있습니다.
+9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
 
 10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
-11. **`package.json`**: Node.js 프로젝트를 위한 작업 파일입니다. 프로젝트에 대한 메타데이터(예: 이름, 저자 등)을 포함하고 있습니다. 또한 이 파일을 통해 여러분의 프로젝트를 위해 어떤 패키지를 설치해야 하는지 npm이 알 수 있습니다.
+11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
 
-12. **`README.md`**: 프로젝트에 도움이 되는 참고 사항들을 담고 있습니다.
+12. **`README.md`**: A text file containing useful reference information about your project.
 
 ## 🎓 Learning Gatsby
 
-더 많은 안내가 필요하신가요? 개츠비 공식 문서는 [이 사이트](https://www.gatsbyjs.org/)에서 확인하실 수 있습니다. 시작하기에 좋은 공간이 몇 군데 있습니다:
+Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
 
-- **대부분의 개발자들에게는 ['in-depth tutorial for creating a site with Gatsby'](https://www.gatsbyjs.org/tutorial/) 프로젝트로 시작하길 권합니다.** 어떤 능력이든 0부터 시작하며, 모든 과정을 차근차근 알아가는 튜토리얼입니다.
+- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
 
-- **바로 코드 샘플부터 시작하려면, [우리의 공식 문서](https://www.gatsbyjs.org/docs/)를 봐주세요.** 특히 사이드바의 _Guides_, _API Reference_, 그리고 _Advanced Tutorials_ 섹션을 봐주시기 바랍니다.
+- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
 
 ## 💫 Deploy
 
-[![Netlify에서 배포하세요!](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-blog)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world)
 
 <!-- AUTO-GENERATED-CONTENT:END -->
