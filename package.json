@@ -15,6 +15,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@types/styled-components": "^4.1.19",
     "gatsby": "^2.15.20",
     "gatsby-plugin-offline": "^3.0.8",
     "gatsby-plugin-react-helmet": "^3.1.8",
@@ -22,7 +23,9 @@
     "gatsby-source-filesystem": "^2.1.26",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "styled-components": "^4.3.2",
+    "styled-reset": "^4.0.1"
   },
   "devDependencies": {
     "@types/react": "^16.9.2",
