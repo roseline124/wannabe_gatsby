@@ -4,9 +4,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby`,
-    siteUrl: `https://www.gatsbyjs.org`,
-    description: `Blazing fast modern site generator for React`,
+    title: `Gatsby Blog`,
+    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, eos. Error mollitia voluptates consectetur perferendis facilis neque fugit corrupti libero. Reiciendis unde inventore animi iusto similique autem! Architecto, suscipit unde.`,
   },
   plugins: [
     `gatsby-plugin-offline`,

@@ -1,47 +1,51 @@
 import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
-const Header = styled.header`
-  /* TODO: tranparent */
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 50px;
-  background-color: #f0f0f0;
-  box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.2);
+import Title from './Title'
+import { Wrapper } from './Base'
+
+const Image = styled.img`
+  width: 100vw;
+  height: 100vh;
+
+  background-position: 50% 50%;
+  background-image: url('./assets/cover.jpg');
+  background-size: cover;
+
+  position: absolute;
+  z-index: -1;
 `
 
-const List = styled.ul`
-  list-style: none;
-  display: flex;
-  align-items: center;
-`
-
-const Item = styled.li`
-  font-size: 15px;
-  /* TODO: if first-li, then no margin */
-  margin-left: 25px;
-  color: gray;
-`
-
-const Link = styled.a`
-  text-decoration: none;
-`
-
-export default () => {
+const Cover = ({ data: { file } }) => {
   return (
-    <Header>
-      <List>
-        {/* TODO: change URL to the router */}
-        <Link href="#">
-          <Item>Home</Item>
-        </Link>
-
-        <Item>Menu1</Item>
-        <Item>Menu2</Item>
-        <Item>Menu3</Item>
-      </List>
-    </Header>
+    <Wrapper>
+      <Image alt={file.name} src={file.publicURL} />
+      <Title />
+    </Wrapper>
   )
+}
+
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        file(relativePath: { eq: "images/cover.jpg" }) {
+          name
+          publicURL
+        }
+      }
+    `}
+    render={data => <Cover data={data} {...props} />}
+  />
+)
+
+Cover.propTypes = {
+  data: PropTypes.shape({
+    file: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      publicURL: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 }

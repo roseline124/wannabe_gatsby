@@ -1,6 +1,11 @@
 // components to be used frequentlyin other components
 
-import React from 'react'
 import styled from 'styled-components'
 
-export const Container = styled.div``
+export const Container = styled.div`
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+`
+
+export const Wrapper = styled.div``

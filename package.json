@@ -15,6 +15,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@types/prop-types": "^15.7.2",
     "@types/styled-components": "^4.1.19",
     "gatsby": "^2.15.20",
     "gatsby-plugin-offline": "^3.0.8",
