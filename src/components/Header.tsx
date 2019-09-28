@@ -9,8 +9,6 @@ const Header = styled.header`
   height: 50px;
   padding: 20px;
   background-color: transparent;
-  /* background-color: #f0f0f0; */
-  /* box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.2); */
 `
 
 const List = styled.ul`
@@ -27,10 +25,19 @@ export default () => {
     <Header>
       <List>
         {/* TODO: change URL to the router */}
-        <Item>Home</Item>
-        <Item>Menu1</Item>
-        <Item>Menu2</Item>
-        <Item>Menu3</Item>
+        {/* TODO2: mobile version */}
+        <Item>
+          <a href="#Home">Home</a>
+        </Item>
+        <Item>
+          <a href="#About">About</a>
+        </Item>
+        <Item>
+          <a href="#Posts">Posts</a>
+        </Item>
+        <Item>
+          <a href="#Tag">Tag</a>
+        </Item>
       </List>
     </Header>
   )
