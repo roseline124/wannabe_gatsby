@@ -7,5 +7,3 @@ export const Container = styled.div`
   padding: 0;
   margin: 0;
 `
-
-export const Wrapper = styled.div``

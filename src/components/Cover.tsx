@@ -1,31 +1,23 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
-import PropTypes from "prop-types";
-
-import Title from "./Title";
-import { Wrapper } from "./Base";
+import React from 'react'
+import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const Image = styled.img`
   width: 100vw;
   height: 100vh;
 
   background-position: 50% 50%;
-  background-image: url("./assets/cover.jpg");
+  background-image: url('./assets/cover.jpg');
   background-size: cover;
 
   position: absolute;
   z-index: -1;
-`;
+`
 
 const Cover = ({ data: { coverImage } }) => {
-  return (
-    <Wrapper>
-      <Image alt={coverImage.name} src={coverImage.publicURL} />
-      <Title />
-    </Wrapper>
-  );
-};
+  return <Image alt={coverImage.name} src={coverImage.publicURL} />
+}
 
 export default props => (
   <StaticQuery
@@ -39,13 +31,13 @@ export default props => (
     `}
     render={data => <Cover data={data} {...props} />}
   />
-);
+)
 
 Cover.propTypes = {
   data: PropTypes.shape({
     file: PropTypes.shape({
       name: PropTypes.string.isRequired,
-      publicURL: PropTypes.string.isRequired
-    }).isRequired
-  }).isRequired
-};
+      publicURL: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
+}

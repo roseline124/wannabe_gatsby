@@ -3,23 +3,20 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import { Wrapper } from './Base'
-
-const TitleWrapper = styled(Wrapper)`
-  display: block;
-  margin-left: 50px;
+const TitleWrapper = styled.div`
   position: absolute;
-  bottom: 150px;
+  top: 400px;
+  text-align: center;
   color: white;
+  height: 100vh;
 `
 
 const MainTitle = styled.h1`
-  font-size: 4rem;
+  font-size: 3rem;
 `
 
 const Description = styled.p`
   font-weight: 300;
-  width: 800px;
   margin-top: 15px;
   font-size: 1.5rem;
 `
