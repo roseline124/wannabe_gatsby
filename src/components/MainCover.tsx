@@ -23,7 +23,7 @@ export default props => (
   <StaticQuery
     query={graphql`
       query CoverImageQuery {
-        coverImage: file(relativePath: { eq: "images/cover.jpg" }) {
+        coverImage: file(relativePath: { eq: "assets/images/cover.jpg" }) {
           name
           publicURL
         }

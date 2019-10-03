@@ -13,6 +13,7 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    'gatsby-transformer-remark',
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -22,8 +23,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `assets`,
-        path: `${__dirname}/src/assets/`,
+        path: `${__dirname}/src/`,
       },
     },
   ],

@@ -1,3 +1,9 @@
-### Test file
+---
+path: '/posts/HelloWorld'
+date: '2019-05-04'
+title: 'My first blog post'
+---
 
-This is test file.
+### Test
+
+test
