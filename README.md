@@ -4,6 +4,11 @@
 
 roseline's blog.
 
+**other blogs**
+
+- [https://roseline124.github.io](https://roseline124.github.io)
+- [https://roseline-song.netlify.com](https://roseline-song.netlify.com)
+
 ## 📝 To DOs
 
 [] apply material UI
