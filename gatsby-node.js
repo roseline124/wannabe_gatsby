@@ -1,9 +1,9 @@
-import path from 'path'
+const path = require('path')
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
-  const PostLayout = path.resolve(`src/layouts/PostLayout.ts`)
+  const PostLayout = path.resolve(`src/layouts/PostLayout.tsx`)
 
   const result = await graphql(`
     {

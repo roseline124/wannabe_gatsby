@@ -4,8 +4,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Blog`,
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, eos. Error mollitia voluptates consectetur perferendis facilis neque fugit corrupti libero. Reiciendis unde inventore animi iusto similique autem! Architecto, suscipit unde.`,
+    title: `Roseline Blog`,
+    description: `Jekyll에서, Hexo에서, Gastby로`,
   },
   plugins: [
     `gatsby-plugin-offline`,
