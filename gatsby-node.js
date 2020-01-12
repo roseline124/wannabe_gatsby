@@ -1,3 +1,7 @@
+/**
+ * Gatsby node API: https://www.gatsbyjs.org/docs/node-apis/
+ */
+
 const path = require('path')
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
