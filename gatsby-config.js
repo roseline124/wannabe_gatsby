@@ -4,8 +4,8 @@
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Blog`,
-    description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, eos. Error mollitia voluptates consectetur perferendis facilis neque fugit corrupti libero. Reiciendis unde inventore animi iusto similique autem! Architecto, suscipit unde.`,
+    title: `Roseline Blog`,
+    description: `Jekyll에서, Hexo에서, Gastby로`,
   },
   plugins: [
     `gatsby-plugin-offline`,
@@ -13,6 +13,7 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    'gatsby-transformer-remark',
     {
       resolve: `gatsby-plugin-typography`,
       options: {
@@ -22,8 +23,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `assets`,
-        path: `${__dirname}/src/assets/`,
+        path: `${__dirname}/src/`,
       },
     },
   ],

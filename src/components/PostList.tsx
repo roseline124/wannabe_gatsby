@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Post = styled.div`
-  display: block;
+  position: relative;
 
   h1 {
     font-size: 2rem;
