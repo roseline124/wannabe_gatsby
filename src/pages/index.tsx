@@ -1,7 +1,7 @@
 import React from 'react'
 
-// layouts
-import BodyLayout from '../layouts/BodyLayout'
+// templates
+import BodyLayout from '../templates/BodyLayout'
 // components
 import Title from '../components/Title'
 import PostList from '../components/PostList'

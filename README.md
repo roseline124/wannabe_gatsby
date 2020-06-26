@@ -23,7 +23,7 @@ A quick look at the top-level files and directories in this project.
     ├── src
       ├── assets
       ├── components
-      ├── layouts
+      ├── templates
       ├── pages
       ├── posts
       ├── utils
