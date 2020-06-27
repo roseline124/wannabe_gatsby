@@ -1,13 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const Post = styled.div`
-  position: relative;
-
-  h1 {
-    font-size: 2rem;
-  }
-`
 
 // Post Content
 const query = `
@@ -23,7 +14,7 @@ const query = `
 
 export default () => {
   return (
-    <Post>
+    <div>
       <div>
         <h1>title</h1>
         <p>
@@ -33,6 +24,6 @@ export default () => {
           labore laboriosam recusandae animi fugiat!
         </p>
       </div>
-    </Post>
+    </div>
   )
 }

@@ -1,18 +1,17 @@
 import React from 'react'
 
-// layouts
-import BodyLayout from '../layouts/BodyLayout'
-// components
-import Title from '../components/Title'
+import PageLayout from '../templates/PageLayout'
+import BodyLayout from '../templates/BodyLayout'
 import PostList from '../components/PostList'
 
 export default () => {
   return (
     <div>
-      <BodyLayout>
-        <Title />
-        <PostList />
-      </BodyLayout>
+      <PageLayout>
+        <BodyLayout>
+          <PostList />
+        </BodyLayout>
+      </PageLayout>
     </div>
   )
 }

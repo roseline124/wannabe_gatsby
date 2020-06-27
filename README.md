@@ -11,8 +11,12 @@ roseline's blog.
 
 ## 📝 To DOs
 
-[] apply material UI
-[] write README.md
+1. design
+
+- [x] apply material UI
+- [x] pagelayout - header
+- [ ] split pagelayout header as file
+- [ ] pagelayout - footer
 
 ## 🧐 What's inside?
 
@@ -23,7 +27,7 @@ A quick look at the top-level files and directories in this project.
     ├── src
       ├── assets
       ├── components
-      ├── layouts
+      ├── templates
       ├── pages
       ├── posts
       ├── utils

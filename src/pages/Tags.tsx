@@ -1,7 +1,7 @@
 import React from 'react'
 
-// layouts
-import BodyLayout from '../layouts/BodyLayout'
+// templates
+import BodyLayout from '../templates/BodyLayout'
 
 export default () => {
   return (
