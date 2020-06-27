@@ -2,12 +2,12 @@ import createPalette from '@material-ui/core/styles/createPalette'
 
 const palette = createPalette({
   primary: {
-    main: '#2D142C',
-    dark: '#061518',
+    main: '#9001f5',
+    dark: '#4B2B31',
     contrastText: '#FFFFFF',
   },
   secondary: {
-    main: '#70737a',
+    main: '#233342',
     dark: '#2a2226',
   },
   error: {
