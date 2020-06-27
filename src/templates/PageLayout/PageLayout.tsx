@@ -1,11 +1,10 @@
 import React from 'react'
-
 import { Box, Container } from '@material-ui/core'
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
-import { StaticQuery } from 'gatsby'
+import { StaticQuery, graphql } from 'gatsby'
+
 import Header from './Header'
 import Footer from './Footer'
-import { siteMetaDataQueryDoc } from '../../pages/index'
 import theme from '../../style/theme'
 
 const useStyles = makeStyles({
@@ -19,6 +18,17 @@ const useStyles = makeStyles({
     flexGrow: 1,
   },
 })
+
+const siteMetaDataQueryDoc = graphql`
+  query siteMetadataQuery {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`
 
 const PageLayout = ({ children }) => {
   const classes = useStyles()

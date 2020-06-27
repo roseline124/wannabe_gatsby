@@ -14,8 +14,8 @@ import {
 import MenuIcon from '@material-ui/icons/Menu'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
 import { Link } from 'gatsby'
-import { SiteSiteMetadata } from '../../generated/graphql'
-import { GITHUB_USER_NAME } from '../../config'
+import { SiteSiteMetadata } from 'generated/graphql'
+import { GITHUB_USER_NAME } from '../../constants/github'
 import {
   title as defaultTitle,
   description as defaultDescription,
@@ -152,11 +152,11 @@ const Header = (props: HeaderProps) => {
               classes={{ img: classes.avatarImg }}
             />
             <Box>
-              <Typography className={classes.title}>
+              <Typography className={classes.title} color="primary">
                 {siteMetadata?.title || defaultTitle}
               </Typography>
               <Hidden smDown>
-                <Typography className={classes.description}>
+                <Typography className={classes.description} color="secondary">
                   {siteMetadata?.description || defaultDescription}
                 </Typography>
               </Hidden>

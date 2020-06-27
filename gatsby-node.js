@@ -4,8 +4,14 @@
 
 const path = require('path')
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions
+exports.createPages = async ({
+  actions,
+  graphql,
+  reporter
+}) => {
+  const {
+    createPage
+  } = actions
 
   const PostLayout = path.resolve(`src/templates/PostLayout.tsx`)
 
@@ -32,7 +38,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allMarkdownRemark.edges.forEach(({
+    node
+  }) => {
     createPage({
       path: node.frontmatter.path,
       component: PostLayout,
