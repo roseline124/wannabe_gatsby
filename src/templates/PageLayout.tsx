@@ -1,13 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Avatar, Box, Container, Typography } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
+import {
+  Avatar,
+  Box,
+  Container,
+  Typography,
+  Hidden,
+  IconButton,
+  Menu,
+  MenuProps,
+  MenuItem,
+} from '@material-ui/core'
+import MenuIcon from '@material-ui/icons/Menu'
+import { makeStyles, withStyles } from '@material-ui/core/styles'
 import { Link, StaticQuery } from 'gatsby'
 
 import { GITHUB_USER_NAME } from '../config'
 import { siteMetaDataQueryDoc } from '../queries/sitemetaData'
 
-const useStyles = makeStyles(() => {
+const useStyles = makeStyles(theme => {
   return {
     root: {
       width: '100%',
@@ -50,21 +61,71 @@ const useStyles = makeStyles(() => {
       width: 50,
       height: 50,
       marginRight: 10,
+      border: '1px solid #e8e8e8',
     },
     avatarWrapper: {
       display: 'flex',
       alignItems: 'center',
     },
-    title: { fontSize: 20 },
+    title: {
+      fontSize: 20,
+      [theme.breakpoints.down('sm')]: {
+        fontSize: 16,
+      },
+    },
     description: {
-      fontSize: 14,
+      fontSize: 16,
+    },
+    menuIcon: {
+      color: '#333',
     },
   }
 })
 
+const StyledMenu = withStyles({
+  paper: {
+    border: '1px solid #d3d4d5',
+  },
+})((props: MenuProps) => (
+  <Menu
+    elevation={0}
+    getContentAnchorEl={null}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'center',
+    }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'center',
+    }}
+    {...props}
+  />
+))
+
+const StyledMenuItem = withStyles(theme => ({
+  root: {
+    '&:focus': {
+      backgroundColor: '#eee',
+      '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+        color: theme.palette.common.white,
+      },
+    },
+  },
+}))(MenuItem)
+
 const PageLayout = ({ children }) => {
   const classes = useStyles()
   const [avatarURL, setAvatarURL] = useState(null)
+
+  const [anchorEl, setAnchorEl] = useState(null)
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleClose = () => {
+    setAnchorEl(null)
+  }
 
   useEffect(() => {
     axios
@@ -86,6 +147,7 @@ const PageLayout = ({ children }) => {
                 className={classes.avatar}
                 classes={{ img: classes.avatarImg }}
               />
+
               <StaticQuery
                 query={siteMetaDataQueryDoc}
                 render={data => (
@@ -93,9 +155,11 @@ const PageLayout = ({ children }) => {
                     <Typography className={classes.title}>
                       {data.site.siteMetadata.title}
                     </Typography>
-                    <Typography className={classes.description}>
-                      {data.site.siteMetadata.description}
-                    </Typography>
+                    <Hidden smDown>
+                      <Typography className={classes.description}>
+                        {data.site.siteMetadata.description}
+                      </Typography>
+                    </Hidden>
                   </Box>
                 )}
               />
@@ -103,18 +167,57 @@ const PageLayout = ({ children }) => {
           </Link>
 
           <Box>
-            <Link className={classes.linkItem} to="/">
-              Home
-            </Link>
-            <Link className={classes.linkItem} to="/About/">
-              About
-            </Link>
-            <Link className={classes.linkItem} to="/Categories/">
-              Categories
-            </Link>
-            <Link className={classes.linkItem} to="/Tags/">
-              Tags
-            </Link>
+            <Hidden smDown>
+              <Link className={classes.linkItem} to="/">
+                Home
+              </Link>
+              <Link className={classes.linkItem} to="/About/">
+                About
+              </Link>
+              <Link className={classes.linkItem} to="/Categories/">
+                Categories
+              </Link>
+              <Link className={classes.linkItem} to="/Tags/">
+                Tags
+              </Link>
+            </Hidden>
+
+            <Hidden mdUp>
+              <IconButton
+                component="span"
+                onClick={handleClick}
+                className={classes.menuIcon}
+              >
+                <MenuIcon />
+              </IconButton>
+              <StyledMenu
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                <StyledMenuItem>
+                  <Link className={classes.linkItem} to="/">
+                    Home
+                  </Link>
+                </StyledMenuItem>
+                <StyledMenuItem>
+                  <Link className={classes.linkItem} to="/About/">
+                    About
+                  </Link>
+                </StyledMenuItem>
+                <StyledMenuItem>
+                  <Link className={classes.linkItem} to="/Categories/">
+                    Categories
+                  </Link>
+                </StyledMenuItem>
+                <StyledMenuItem>
+                  <Link className={classes.linkItem} to="/Tags/">
+                    Tags
+                  </Link>
+                </StyledMenuItem>
+              </StyledMenu>
+            </Hidden>
           </Box>
         </Container>
       </Box>
