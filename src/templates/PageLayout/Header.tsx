@@ -13,16 +13,16 @@ import {
 } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
-import { Link, StaticQuery } from 'gatsby'
-
+import { Link } from 'gatsby'
+import { SiteSiteMetadata } from '../../generated/graphql'
 import { GITHUB_USER_NAME } from '../../config'
-import { siteMetaDataQueryDoc } from '../../queries/sitemetaData'
+import {
+  title as defaultTitle,
+  description as defaultDescription,
+} from '../../constants/metadata'
 
 const useStyles = makeStyles(theme => {
   return {
-    root: {
-      width: '100%',
-    },
     navBar: {
       display: 'flex',
       alignItems: 'center',
@@ -113,7 +113,12 @@ const StyledMenuItem = withStyles(theme => ({
   },
 }))(MenuItem)
 
-const Header = () => {
+interface HeaderProps {
+  siteMetadata?: SiteSiteMetadata
+}
+
+const Header = (props: HeaderProps) => {
+  const { siteMetadata } = props
   const classes = useStyles()
   const [avatarURL, setAvatarURL] = useState(null)
 
@@ -146,22 +151,16 @@ const Header = () => {
               className={classes.avatar}
               classes={{ img: classes.avatarImg }}
             />
-
-            <StaticQuery
-              query={siteMetaDataQueryDoc}
-              render={data => (
-                <Box>
-                  <Typography className={classes.title}>
-                    {data.site.siteMetadata.title}
-                  </Typography>
-                  <Hidden smDown>
-                    <Typography className={classes.description}>
-                      {data.site.siteMetadata.description}
-                    </Typography>
-                  </Hidden>
-                </Box>
-              )}
-            />
+            <Box>
+              <Typography className={classes.title}>
+                {siteMetadata?.title || defaultTitle}
+              </Typography>
+              <Hidden smDown>
+                <Typography className={classes.description}>
+                  {siteMetadata?.description || defaultDescription}
+                </Typography>
+              </Hidden>
+            </Box>
           </Box>
         </Link>
 

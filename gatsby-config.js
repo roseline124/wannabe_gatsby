@@ -13,11 +13,22 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    'gatsby-transformer-remark',
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: 'src/generated/graphql.ts',
+        documentPaths: [
+          `./src/**/*.{ts,tsx}`,
+          `./node_modules/gatsby-*/**/*.js`,
+        ],
+        failOnError: process.env.NODE_ENV === 'production',
       },
     },
     {
