@@ -16,7 +16,7 @@ const typography = createTypography(palette, {
     letterSpacing: '-0.6px',
   },
   fontFamily: [
-    'Do Hyeon',
+    'Noto Sans KR',
     'Montserrat',
     '-apple-system',
     'BlinkMacSystemFont',

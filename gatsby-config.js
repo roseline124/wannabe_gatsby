@@ -48,10 +48,9 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Do Hyeon', 'Montserrat']
-        }
-      }
+          families: ['Noto Sans KR', 'Montserrat'],
+        },
+      },
     },
-
   ],
 }
