@@ -23,11 +23,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
-        fileName: 'src/generated/graphql.ts',
-        documentPaths: [
-          `./src/**/*.{ts,tsx}`,
-          `./node_modules/gatsby-*/**/*.js`,
-        ],
+        // do not put dist file into src folder. it causes recursive excution.
+        fileName: 'generated/graphql.ts',
+        documentPaths: [`./src/**/*.{ts,tsx}`],
         failOnError: process.env.NODE_ENV === 'production',
       },
     },
