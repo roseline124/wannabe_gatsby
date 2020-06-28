@@ -14,6 +14,10 @@ const useStyles = makeStyles(theme => {
       marginBottom: 10,
       fontSize: 20,
       ...getEllipsisProps(1),
+      [theme.breakpoints.down('sm')]: {
+        marginBottom: 5,
+        fontSize: 18,
+      },
     },
     metaDataWrapper: {
       display: 'flex',
@@ -25,6 +29,10 @@ const useStyles = makeStyles(theme => {
     content: {
       marginBottom: 10,
       ...getEllipsisProps(5),
+      [theme.breakpoints.down('sm')]: {
+        ...getEllipsisProps(3),
+        lineHeight: '1.4em',
+      },
     },
     inCategory: {
       marginRight: 5,
@@ -35,12 +43,21 @@ const useStyles = makeStyles(theme => {
     thumbnailWrapper: {
       maxWidth: 200,
       width: '100%',
+      height: '100%',
       marginRight: 20,
+      [theme.breakpoints.down('sm')]: {
+        marginRight: 10,
+        maxWidth: 100,
+      },
     },
     thumbnailImgae: {
       borderRadius: 5,
       maxHeight: 200,
+      height: '100%',
       '& img': { borderRadius: 5 },
+      [theme.breakpoints.down('sm')]: {
+        maxHeight: 100,
+      },
     },
   }
 })
