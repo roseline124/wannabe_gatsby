@@ -1,10 +1,11 @@
 import React from 'react'
-import { Box, Container, Typography } from '@material-ui/core'
+import { Box, Container, Divider } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import PostListItem from '../components/PostListItem'
 
 const useStyles = makeStyles({
   root: {
-    paddingBottom: 50,
+    padding: '50px 0',
     width: '100%',
     position: 'relative',
   },
@@ -16,7 +17,13 @@ const BodyLayout = () => {
   return (
     <Box className={classes.root}>
       <Container maxWidth="lg">
-        <Typography>sdlkfjksldjfkjl</Typography>
+        <PostListItem />
+        <Divider />
+        <PostListItem />
+        <Divider />
+        <PostListItem />
+        <Divider />
+        <PostListItem />
       </Container>
     </Box>
   )
