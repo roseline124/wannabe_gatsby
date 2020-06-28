@@ -36,6 +36,7 @@ const useStyles = makeStyles(theme => {
       justifyContent: 'space-between',
     },
     linkItem: {
+      fontSize: 18,
       padding: 10,
       color: '#333',
       '&:hover, &:visited, &:link, &:active': {

@@ -15,6 +15,12 @@ const typography = createTypography(palette, {
     lineHeight: '1.4em',
     letterSpacing: '-0.6px',
   },
+  body2: {
+    fontSize: '0.75rem', // 12px
+    fontWeight: 300,
+    lineHeight: '1.3em',
+    letterSpacing: '-0.6px',
+  },
   fontFamily: [
     'Noto Sans KR',
     'Montserrat',
