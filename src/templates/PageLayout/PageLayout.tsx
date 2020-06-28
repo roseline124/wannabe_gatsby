@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Container } from '@material-ui/core'
+import { Box } from '@material-ui/core'
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
 import { StaticQuery, graphql } from 'gatsby'
 
@@ -19,12 +19,24 @@ const useStyles = makeStyles({
   },
 })
 
-const siteMetaDataQueryDoc = graphql`
-  query siteMetadataQuery {
+const pageLayoutQueryDoc = graphql`
+  query PageLayoutQuery {
     site {
       siteMetadata {
         title
         description
+      }
+    }
+
+    bgImage: file(relativePath: { eq: "images/bg-image.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000, maxHeight: 800) {
+          base64
+          src
+          presentationWidth
+          presentationHeight
+          srcSet
+        }
       }
     }
   }
@@ -37,13 +49,11 @@ const PageLayout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <Box className={classes.root}>
         <StaticQuery
-          query={siteMetaDataQueryDoc}
+          query={pageLayoutQueryDoc}
           render={data => (
             <>
               <Header siteMetadata={data.site.siteMetadata} />
-              <Container maxWidth="lg" className={classes.body}>
-                {children}
-              </Container>
+              <Box className={classes.body}>{children}</Box>
               <Footer siteMetadata={data.site.siteMetadata} />
             </>
           )}

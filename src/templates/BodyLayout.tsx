@@ -1,13 +1,12 @@
 import React from 'react'
-import { Box } from '@material-ui/core'
+import { Box, Container, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-
-const defaultTitle = 'title'
-const defaultContent = 'content'
 
 const useStyles = makeStyles({
   root: {
-    padding: '50px 0',
+    paddingBottom: 50,
+    width: '100%',
+    position: 'relative',
   },
 })
 
@@ -16,8 +15,9 @@ const BodyLayout = () => {
 
   return (
     <Box className={classes.root}>
-      <h1>{defaultTitle}</h1>
-      <h1>{defaultContent}</h1>
+      <Container maxWidth="lg">
+        <Typography>sdlkfjksldjfkjl</Typography>
+      </Container>
     </Box>
   )
 }
