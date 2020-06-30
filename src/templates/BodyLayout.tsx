@@ -1,7 +1,7 @@
 import React from 'react'
-import { Box, Container, Divider } from '@material-ui/core'
+import { Box, Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import PostListItem from '../components/PostListItem'
+import PostList from '../components/PostList'
 
 const useStyles = makeStyles(theme => {
   return {
@@ -16,19 +16,25 @@ const useStyles = makeStyles(theme => {
   }
 })
 
+// Post Content
+const query = `
+  {
+    allFile(filter: {dir: {eq: "/Users/songhyeonji/toy/roseline_blog/src/posts"}}) {
+      nodes {
+        name
+        relativePath
+      }
+    }
+  }
+`
+
 const BodyLayout = () => {
   const classes = useStyles()
 
   return (
     <Box className={classes.root}>
       <Container maxWidth="lg">
-        <PostListItem />
-        <Divider />
-        <PostListItem />
-        <Divider />
-        <PostListItem />
-        <Divider />
-        <PostListItem />
+        <PostList />
       </Container>
     </Box>
   )
