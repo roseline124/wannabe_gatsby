@@ -13,7 +13,6 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-transformer-remark`,
     `gatsby-theme-material-ui`,
     {
       resolve: `gatsby-plugin-typography`,
@@ -44,6 +43,7 @@ module.exports = {
         name: `assets`,
       },
     },
+    `gatsby-transformer-remark`,
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {

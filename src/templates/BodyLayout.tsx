@@ -16,26 +16,11 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-// Post Content
-const query = `
-  {
-    allFile(filter: {dir: {eq: "/Users/songhyeonji/toy/roseline_blog/src/posts"}}) {
-      nodes {
-        name
-        relativePath
-      }
-    }
-  }
-`
-
 const BodyLayout = () => {
   const classes = useStyles()
-
   return (
     <Box className={classes.root}>
-      <Container maxWidth="lg">
-        <PostList />
-      </Container>
+      <Container maxWidth="lg">{/* <PostList /> */}</Container>
     </Box>
   )
 }
