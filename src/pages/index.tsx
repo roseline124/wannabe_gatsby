@@ -34,7 +34,7 @@ export const pageQuery = graphql`
         node {
           # TODO: User PostListItem Fragment
           id
-          excerpt(pruneLength: 200)
+          excerpt(pruneLength: 700)
           frontmatter {
             date
             slug

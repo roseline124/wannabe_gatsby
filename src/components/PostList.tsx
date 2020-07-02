@@ -10,10 +10,10 @@ interface PostListProps {
 const PostList: FC<PostListProps> = ({ posts }) => {
   return (
     <>
-      {posts.map((post: PostListItemFragment) => (
+      {posts.map((post: PostListItemFragment, index: number) => (
         <React.Fragment key={post.id}>
           <PostListItem post={post} />
-          <Divider />
+          {index !== posts.length - 1 && <Divider />}
         </React.Fragment>
       ))}
     </>

@@ -111,7 +111,7 @@ export default PostListItem
 graphql`
   fragment PostListItem on MarkdownRemark {
     id
-    excerpt(pruneLength: 200)
+    excerpt(pruneLength: 700)
     frontmatter {
       date
       slug
