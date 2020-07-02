@@ -8,7 +8,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage, createNodeField } = actions
   const PostLayout = path.resolve(`src/templates/PostLayout.tsx`)
 
-  const result = graphql(`
+  const result = await graphql(`
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
@@ -19,10 +19,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             id
             frontmatter {
               title
-              date(formatString: "yyyy-MM-dd")
+              date(formatString: "yyyy년 MM월 DD일")
               slug
+              category
             }
-            excerpt(pruneLength: 250)
+            excerpt(pruneLength: 700)
             internal {
               content
             }
@@ -47,13 +48,22 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           name: `slug`,
           value: slug,
         })
+        createNodeField({
+          node,
+          name: `category`,
+          value: category,
+        })
       }
 
+      const category = node.frontmatter.category
+      const slug = node.frontmatter.slug
+      const path = category ? `/${category}/${slug}` : `/${slug}`
       createPage({
-        path: node.frontmatter.slug,
+        path,
         component: PostLayout,
         context: {
-          slug: node.frontmatter.slug,
+          slug,
+          category,
         },
       })
     })
