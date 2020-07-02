@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Box, Typography } from '@material-ui/core'
 import { SimpleImg } from 'react-simple-img'
 import { makeStyles } from '@material-ui/core/styles'
+import { graphql } from 'gatsby'
+
 import { getEllipsisProps } from '../style/utils'
+import { PostListItemFragment } from 'generated/graphql'
 import thumbnail from '../assets/images/flutter-water-dashboard.png'
 
 const useStyles = makeStyles(theme => {
@@ -62,9 +65,12 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-const PostListItem = () => {
-  const classes = useStyles()
+interface PostListItemProps {
+  post: PostListItemFragment
+}
 
+const PostListItem: FC<PostListItemProps> = ({ post }) => {
+  const classes = useStyles()
   return (
     <Box className={classes.root}>
       <Box display="flex">
@@ -78,23 +84,10 @@ const PostListItem = () => {
         </Box>
         <Box className={classes.contentWrapper}>
           <Typography variant="h1" className={classes.title}>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
-            sapiente voluptatem doloremque at veniam aut eius laboriosam
-            nesciunt tempore necessitatibus consequuntur veritatis alias
-            explicabo illo, amet distinctio soluta saepe nihil.
+            {post.frontmatter.title}
           </Typography>
           <Typography variant="body1" className={classes.content}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
-            blanditiis numquam quis tempora perferendis! Illum atque, placeat
-            quaerat, dolorum recusandae iusto dicta eum harum quasi similique
-            rerum. Distinctio, maxime inventore. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Cum blanditiis numquam quis tempora
-            perferendis! Illum atque, placeat quaerat, dolorum recusandae iusto
-            dicta eum harum quasi similique rerum. Distinctio, maxime inventore.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
-            blanditiis numquam quis tempora perferendis! Illum atque, placeat
-            quaerat, dolorum recusandae iusto dicta eum harum quasi similique
-            rerum. Distinctio, maxime inventore.
+            {post.excerpt}
           </Typography>
         </Box>
       </Box>
@@ -114,3 +107,18 @@ const PostListItem = () => {
 }
 
 export default PostListItem
+
+graphql`
+  fragment PostListItem on MarkdownRemark {
+    id
+    excerpt(pruneLength: 200)
+    frontmatter {
+      date
+      slug
+      title
+    }
+    internal {
+      type
+    }
+  }
+`

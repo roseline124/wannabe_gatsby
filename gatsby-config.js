@@ -26,7 +26,7 @@ module.exports = {
         // do not put dist file into src folder. it causes recursive excution.
         fileName: 'generated/graphql.ts',
         documentPaths: [`./src/**/*.{ts,tsx}`],
-        failOnError: process.env.NODE_ENV === 'production',
+        failOnError: process.env.NODE_ENV !== 'production',
       },
     },
     {

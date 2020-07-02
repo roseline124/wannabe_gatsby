@@ -1,10 +1,8 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+// import { graphql } from 'gatsby'
 
-export default function Template({
-  data, // this prop will be injected by the GraphQL query below.
-}) {
-  const { markdownRemark } = data // data.markdownRemark holds our post data
+export default function Template({ data }) {
+  const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
   return (
     <div className="blog-post-container">
@@ -20,15 +18,15 @@ export default function Template({
   )
 }
 
-export const pageQuery = graphql`
-  query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        date(formatString: "yyyy-MM-dd")
-        slug
-        title
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query PostLayoutQuery($slug: String!) {
+//     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+//       html
+//       frontmatter {
+//         date(formatString: "yyyy-MM-dd")
+//         slug
+//         title
+//       }
+//     }
+//   }
+// `

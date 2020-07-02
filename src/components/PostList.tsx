@@ -1,42 +1,18 @@
 import React, { FC } from 'react'
 import { Divider } from '@material-ui/core'
-import { graphql } from 'gatsby'
+import { PostListItemFragment } from 'generated/graphql'
 import PostListItem from '../components/PostListItem'
 
 interface PostListProps {
-  postList?: any[]
+  posts: Array<PostListItemFragment>
 }
 
-const PostListQueryDoc = graphql`
-  query PostList {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "MMMM DD, YYYY")
-            slug
-          }
-          excerpt(pruneLength: 250)
-          internal {
-            content
-          }
-        }
-      }
-    }
-  }
-`
-
-const PostList = ({ data: allMarkdownRemark }) => {
-  console.log(allMarkdownRemark?.edges)
-  if (!postList?.length) return null
-
+const PostList: FC<PostListProps> = ({ posts }) => {
   return (
     <>
-      {postList.map((post: any) => (
+      {posts.map((post: PostListItemFragment) => (
         <React.Fragment key={post.id}>
-          <PostListItem />
+          <PostListItem post={post} />
           <Divider />
         </React.Fragment>
       ))}
