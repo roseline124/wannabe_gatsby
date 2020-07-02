@@ -32,16 +32,17 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          # TODO: User PostListItem Fragment
+          # TODO: Use PostListItem Fragment
           id
           excerpt(pruneLength: 700)
           frontmatter {
-            date
+            date(formatString: "yyyy년 MM월 DD일")
             slug
             title
+            category
           }
           internal {
-            type
+            content
           }
         }
       }

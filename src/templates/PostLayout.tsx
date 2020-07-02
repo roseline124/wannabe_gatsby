@@ -1,7 +1,6 @@
 import React from 'react'
-// import { graphql } from 'gatsby'
 
-export default function Template({ data }) {
+const PostLayout = ({ data }) => {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
   return (
@@ -18,15 +17,4 @@ export default function Template({ data }) {
   )
 }
 
-// export const pageQuery = graphql`
-//   query PostLayoutQuery($slug: String!) {
-//     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-//       html
-//       frontmatter {
-//         date(formatString: "yyyy-MM-dd")
-//         slug
-//         title
-//       }
-//     }
-//   }
-// `
+export default PostLayout

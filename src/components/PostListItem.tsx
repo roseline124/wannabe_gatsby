@@ -92,15 +92,17 @@ const PostListItem: FC<PostListItemProps> = ({ post }) => {
         </Box>
       </Box>
       <Box className={classes.metaDataWrapper}>
-        <Typography variant="body2">2020. 06. 28. 12:00</Typography>
-        <Box display="flex">
-          <Typography variant="body2" className={classes.inCategory}>
-            In
-          </Typography>
-          <Typography variant="body2" className={classes.categoryName}>
-            category name
-          </Typography>
-        </Box>
+        <Typography variant="body2">{post.frontmatter.date}</Typography>
+        {post.frontmatter.category && (
+          <Box display="flex">
+            <Typography variant="body2" className={classes.inCategory}>
+              In
+            </Typography>
+            <Typography variant="body2" className={classes.categoryName}>
+              {post.frontmatter.category}
+            </Typography>
+          </Box>
+        )}
       </Box>
     </Box>
   )
@@ -113,12 +115,13 @@ graphql`
     id
     excerpt(pruneLength: 700)
     frontmatter {
-      date
+      date(formatString: "yyyy년 MM월 DD일")
       slug
       title
+      category
     }
     internal {
-      type
+      content
     }
   }
 `
