@@ -57,13 +57,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
       const category = node.frontmatter.category
       const slug = node.frontmatter.slug
-      const path = category ? `/${category}/${slug}` : `/${slug}`
+      const defaultCategory = 'post'
+      const path = category
+        ? `/${category}/${slug}`
+        : `/${defaultCategory}/${slug}`
+      // if any context property is empty, createPage action would be failed
       createPage({
         path,
         component: PostLayout,
         context: {
           slug,
-          category,
+          category: category || defaultCategory,
         },
       })
     })
