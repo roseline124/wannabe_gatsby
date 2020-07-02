@@ -1,9 +1,8 @@
 import React from 'react'
 import PostLayout from '../templates/PostLayout'
 
-const Post = ({ data }) => {
-  console.log(data)
-  return <PostLayout data={data} />
+const Post = () => {
+  return <PostLayout />
 }
 
 export default Post
