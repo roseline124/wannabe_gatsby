@@ -11,12 +11,25 @@ roseline's blog.
 
 ## 📝 To DOs
 
+### main page
+
 1. design
 
-- [x] apply material UI
+- [x] apply material UI and theme
 - [x] pagelayout - header
-- [ ] split pagelayout header as file
-- [ ] pagelayout - footer
+- [x] pagelayout - footer
+- [x] split pagelayout header as file
+- [x] add post list
+
+2. query and route
+
+- [x] query posts
+- [ ] add link to post list
+- [ ] add thumbnail to frontmatter
+
+### post detail page
+
+- [x] fix createPage in gatsby-node.js (forgot await)
 
 ## 🧐 What's inside?
 
