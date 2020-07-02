@@ -11,12 +11,26 @@ roseline's blog.
 
 ## 📝 To DOs
 
+### main page
+
 1. design
 
-- [x] apply material UI
+- [x] apply material UI and theme
 - [x] pagelayout - header
-- [ ] split pagelayout header as file
-- [ ] pagelayout - footer
+- [x] pagelayout - footer
+- [x] split pagelayout header as file
+- [x] add post list
+
+2. query and route
+
+- [x] query posts
+- [ ] add link to post list
+- [ ] add thumbnail to frontmatter
+
+### post detail page
+
+- [x] fix createPage in gatsby-node.js (forgot await)
+- [ ] design postlayout
 
 ## 🧐 What's inside?
 
@@ -24,20 +38,36 @@ A quick look at the top-level files and directories in this project.
 
     .
     ├── gatsby-config.js
+    ├── gatsby-node.js
     ├── src
       ├── assets
       ├── components
+      ├── constans
       ├── templates
+      ├── style
       ├── pages
       ├── posts
       ├── utils
+    ├── static
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+1. **gatsby-config.js**: add plugins and options.
+2. **gatsby-node.js**: create post pages automatically.
+3. src
 
-3.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+- **assets**: static files for post or blog itself.
+- **components**: re-usable components.
+- **constants**: re-usable constants.
+- **templates**: page layout.
+- **style**: theme files for material-ui.
+- **pages**: page component. query for page data muse be in page component. and assign the query to const named `pageQuery`. (I wonder why fragment is not recognized in page query doc)
+- **posts**: markdown files.
+- **utils**: my tool box.
+
+4. **static**: static files (images, favicon) for website.
 
 ## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world)
+[My Blog(WIP)](https://roseline.netlify.app) was deployed in netlify.
+It'll be moved to `github.io` soon later.
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world)

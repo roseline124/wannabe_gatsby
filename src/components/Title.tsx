@@ -13,7 +13,7 @@ const Title = ({
 export default props => (
   <StaticQuery
     query={graphql`
-      query {
+      query SiteMetaData {
         site {
           siteMetadata {
             title

@@ -1,29 +1,23 @@
-import React from 'react'
+import React, { FC } from 'react'
+import { Divider } from '@material-ui/core'
+import { PostListItemFragment } from 'generated/graphql'
+import PostListItem from '../components/PostListItem'
 
-// Post Content
-const query = `
-  {
-    allFile(filter: {dir: {eq: "/Users/songhyeonji/toy/roseline_blog/src/posts"}}) {
-      nodes {
-        name
-        relativePath
-      }
-    }
-  }
-`
+interface PostListProps {
+  posts: Array<PostListItemFragment>
+}
 
-export default () => {
+const PostList: FC<PostListProps> = ({ posts }) => {
   return (
-    <div>
-      <div>
-        <h1>title</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos
-          asperiores eveniet, rerum unde, necessitatibus quo et culpa
-          consectetur ab assumenda, ad cumque voluptatem doloremque molestias
-          labore laboriosam recusandae animi fugiat!
-        </p>
-      </div>
-    </div>
+    <>
+      {posts.map((post: PostListItemFragment, index: number) => (
+        <React.Fragment key={post.id}>
+          <PostListItem post={post} />
+          {index !== posts.length - 1 && <Divider />}
+        </React.Fragment>
+      ))}
+    </>
   )
 }
+
+export default PostList

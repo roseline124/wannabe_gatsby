@@ -13,7 +13,6 @@ module.exports = {
     `gatsby-plugin-typescript`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-transformer-remark`,
     `gatsby-theme-material-ui`,
     {
       resolve: `gatsby-plugin-typography`,
@@ -27,7 +26,7 @@ module.exports = {
         // do not put dist file into src folder. it causes recursive excution.
         fileName: 'generated/graphql.ts',
         documentPaths: [`./src/**/*.{ts,tsx}`],
-        failOnError: process.env.NODE_ENV === 'production',
+        failOnError: process.env.NODE_ENV !== 'production',
       },
     },
     {
@@ -44,6 +43,7 @@ module.exports = {
         name: `assets`,
       },
     },
+    `gatsby-transformer-remark`,
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {

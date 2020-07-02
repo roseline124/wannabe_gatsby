@@ -5,20 +5,27 @@
 const path = require('path')
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions
-
+  const { createPage, createNodeField } = actions
   const PostLayout = path.resolve(`src/templates/PostLayout.tsx`)
 
   const result = await graphql(`
     {
       allMarkdownRemark(
         sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 10
+        limit: 100
       ) {
         edges {
           node {
+            id
             frontmatter {
-              path
+              title
+              date(formatString: "yyyy년 MM월 DD일")
+              slug
+              category
+            }
+            excerpt(pruneLength: 700)
+            internal {
+              content
             }
           }
         }
@@ -32,11 +39,37 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: node.frontmatter.path,
-      component: PostLayout,
-      context: {}, // additional data can be passed via context
+  if (result.data) {
+    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      if (node.internal.type === `MarkdownRemark`) {
+        const slug = createFilePath({ node, getNode, basePath: `pages` })
+        createNodeField({
+          node,
+          name: `slug`,
+          value: slug,
+        })
+        createNodeField({
+          node,
+          name: `category`,
+          value: category,
+        })
+      }
+
+      const category = node.frontmatter.category
+      const slug = node.frontmatter.slug
+      const defaultCategory = 'post'
+      const path = category
+        ? `/${category}/${slug}`
+        : `/${defaultCategory}/${slug}`
+      // if any context property is empty, createPage action would be failed
+      createPage({
+        path,
+        component: PostLayout,
+        context: {
+          slug,
+          category: category || defaultCategory,
+        },
+      })
     })
-  })
+  }
 }
