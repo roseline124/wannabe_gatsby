@@ -1,13 +1,13 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import PageLayout from '../templates/PageLayout'
-import BodyLayout from '../templates/BodyLayout'
+import PostListLayout from '../templates/PostListLayout'
 
 export default ({ data }) => {
   return (
     <div>
       <PageLayout>
-        <BodyLayout />
+        <PostListLayout />
       </PageLayout>
     </div>
   )

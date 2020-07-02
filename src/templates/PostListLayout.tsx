@@ -1,7 +1,8 @@
 import React from 'react'
 import { Box, Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import PostList from '../components/PostList'
+// import PostList from '../components/PostList'
+// import PostLayout, { pageQuery } from '../templates/PostLayout'
 
 const useStyles = makeStyles(theme => {
   return {
@@ -16,13 +17,20 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-const BodyLayout = () => {
+// https://www.gatsbyjs.org/docs/page-query/
+const PostListLayout = () => {
   const classes = useStyles()
   return (
     <Box className={classes.root}>
-      <Container maxWidth="lg">{/* <PostList /> */}</Container>
+      <Container maxWidth="lg">
+        {/* <StaticQuery
+          query={pageQuery}
+          render={data => <PostLayout data={data} />}
+        /> */}
+        sdf
+      </Container>
     </Box>
   )
 }
 
-export default BodyLayout
+export default PostListLayout
