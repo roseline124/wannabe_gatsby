@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Box, Typography } from '@material-ui/core'
+import { Box, Typography, Hidden } from '@material-ui/core'
 import { SimpleImg } from 'react-simple-img'
 import { makeStyles } from '@material-ui/core/styles'
 import { graphql } from 'gatsby'
@@ -11,7 +11,10 @@ import thumbnail from '../assets/images/flutter-water-dashboard.png'
 const useStyles = makeStyles(theme => {
   return {
     root: {
-      padding: '20px 0',
+      padding: '30px 0',
+      [theme.breakpoints.down('sm')]: {
+        padding: '20px 0',
+      },
     },
     title: {
       marginBottom: 10,
@@ -30,9 +33,12 @@ const useStyles = makeStyles(theme => {
       width: '100%',
     },
     content: {
-      marginBottom: 10,
+      marginBottom: 25,
+      minHeight: 120,
       ...getEllipsisProps(5),
       [theme.breakpoints.down('sm')]: {
+        marginBottom: 10,
+        minHeight: 30,
         ...getEllipsisProps(3),
         lineHeight: '1.4em',
       },
@@ -89,21 +95,38 @@ const PostListItem: FC<PostListItemProps> = ({ post }) => {
           <Typography variant="body1" className={classes.content}>
             {post.excerpt}
           </Typography>
+          <Hidden smDown>
+            <Box className={classes.metaDataWrapper}>
+              <Typography variant="body2">{post.frontmatter.date}</Typography>
+              {post.frontmatter.category && (
+                <Box display="flex">
+                  <Typography variant="body2" className={classes.inCategory}>
+                    In
+                  </Typography>
+                  <Typography variant="body2" className={classes.categoryName}>
+                    {post.frontmatter.category}
+                  </Typography>
+                </Box>
+              )}
+            </Box>
+          </Hidden>
         </Box>
       </Box>
-      <Box className={classes.metaDataWrapper}>
-        <Typography variant="body2">{post.frontmatter.date}</Typography>
-        {post.frontmatter.category && (
-          <Box display="flex">
-            <Typography variant="body2" className={classes.inCategory}>
-              In
-            </Typography>
-            <Typography variant="body2" className={classes.categoryName}>
-              {post.frontmatter.category}
-            </Typography>
-          </Box>
-        )}
-      </Box>
+      <Hidden mdUp>
+        <Box className={classes.metaDataWrapper}>
+          <Typography variant="body2">{post.frontmatter.date}</Typography>
+          {post.frontmatter.category && (
+            <Box display="flex">
+              <Typography variant="body2" className={classes.inCategory}>
+                In
+              </Typography>
+              <Typography variant="body2" className={classes.categoryName}>
+                {post.frontmatter.category}
+              </Typography>
+            </Box>
+          )}
+        </Box>
+      </Hidden>
     </Box>
   )
 }
