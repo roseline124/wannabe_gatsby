@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import clsx from 'clsx'
 import {
   Avatar,
   Box,
@@ -119,10 +120,11 @@ const StyledMenuItem = withStyles(theme => ({
 
 interface HeaderProps {
   siteMetadata?: SiteSiteMetadata
+  className?: string
 }
 
 const Header = (props: HeaderProps) => {
-  const { siteMetadata } = props
+  const { siteMetadata, className } = props
   const classes = useStyles()
   const [avatarURL, setAvatarURL] = useState(null)
   const [anchorEl, setAnchorEl] = useState(null)
@@ -144,7 +146,7 @@ const Header = (props: HeaderProps) => {
   }, [])
 
   return (
-    <Box className={classes.navBar}>
+    <Box className={clsx(classes.navBar, className)}>
       <Container maxWidth="lg" className={classes.navContainer}>
         <Link className={classes.homeLink} to="/">
           <Box className={classes.avatarWrapper}>

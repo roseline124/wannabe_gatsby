@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Waypoint } from 'react-waypoint'
 import { Box } from '@material-ui/core'
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
 import { StaticQuery, graphql } from 'gatsby'
@@ -14,6 +15,12 @@ const useStyles = makeStyles({
     flexFlow: 'column',
     minHeight: '100vh',
     backgroundColor: 'white',
+  },
+  header: {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    '& p, a': {
+      color: 'white',
+    },
   },
   body: {
     flexGrow: 1,
@@ -33,6 +40,7 @@ const pageLayoutQueryDoc = graphql`
 
 const PageLayout = ({ children }) => {
   const classes = useStyles()
+  const [headerClassName, setHeaderClassName] = useState<string>(null)
 
   return (
     <ThemeProvider theme={theme}>
@@ -41,7 +49,15 @@ const PageLayout = ({ children }) => {
           query={pageLayoutQueryDoc}
           render={data => (
             <>
-              <Header siteMetadata={data.site.siteMetadata} />
+              <Waypoint
+                topOffset="-500px"
+                onLeave={() => setHeaderClassName(classes.header)}
+                onEnter={() => setHeaderClassName(null)}
+              />
+              <Header
+                siteMetadata={data.site.siteMetadata}
+                className={headerClassName}
+              />
               <Box className={classes.body}>{children}</Box>
               <Footer siteMetadata={data.site.siteMetadata} />
             </>
