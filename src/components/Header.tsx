@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
 import clsx from 'clsx'
 import {
   Avatar,
@@ -16,10 +15,10 @@ import MenuIcon from '@material-ui/icons/Menu'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
 import { Link } from 'gatsby'
 import { SiteSiteMetadata } from 'generated/graphql'
-import { GITHUB_USER_NAME } from '../constants/github'
 import {
   title as defaultTitle,
   description as defaultDescription,
+  PROFILE_IMAGE_PATH,
 } from '../constants/metadata'
 
 const useStyles = makeStyles(theme => {
@@ -130,7 +129,6 @@ interface HeaderProps {
 const Header = (props: HeaderProps) => {
   const { siteMetadata, className } = props
   const classes = useStyles()
-  const [avatarURL, setAvatarURL] = useState(null)
   const [anchorEl, setAnchorEl] = useState(null)
 
   const handleClick = event => {
@@ -141,14 +139,6 @@ const Header = (props: HeaderProps) => {
     setAnchorEl(null)
   }
 
-  useEffect(() => {
-    axios
-      .get(`https://api.github.com/users/${GITHUB_USER_NAME}`)
-      .then(result => {
-        setAvatarURL(result?.data.avatar_url)
-      })
-  }, [])
-
   return (
     <Box className={clsx(classes.navBar, className)}>
       <Container maxWidth="lg" className={classes.navContainer}>
@@ -156,7 +146,7 @@ const Header = (props: HeaderProps) => {
           <Box className={classes.avatarWrapper}>
             <Avatar
               alt="github profile image"
-              src={avatarURL}
+              src={PROFILE_IMAGE_PATH}
               className={classes.avatar}
               classes={{ img: classes.avatarImg }}
             />
