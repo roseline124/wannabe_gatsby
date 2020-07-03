@@ -1,3 +1,5 @@
+import { useMediaQuery } from '@material-ui/core'
+import { useTheme } from '@material-ui/core/styles'
 import { BaseCSSProperties } from '@material-ui/core/styles/withStyles'
 
 export const getEllipsisProps = (maxLine: number) =>
@@ -11,3 +13,13 @@ export const getEllipsisProps = (maxLine: number) =>
     lineHeight: '24px',
     maxHeight: 24 * maxLine,
   } as BaseCSSProperties)
+
+export const isSMDown = () => {
+  const theme = useTheme()
+  return useMediaQuery(theme.breakpoints.down('sm'))
+}
+
+export const isXSDown = () => {
+  const theme = useTheme()
+  return useMediaQuery(theme.breakpoints.down('xs'))
+}

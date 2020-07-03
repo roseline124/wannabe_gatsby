@@ -2,7 +2,8 @@ import createPalette from '@material-ui/core/styles/createPalette'
 
 const palette = createPalette({
   primary: {
-    main: '#9001f5',
+    // main: '#9001f5',
+    main: '#333',
     dark: '#4B2B31',
     contrastText: '#FFFFFF',
   },
