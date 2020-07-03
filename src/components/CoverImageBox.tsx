@@ -1,35 +1,35 @@
-import React, { FC } from 'react'
+import React from 'react'
+import { withController } from 'react-scroll-parallax'
 import { Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import { BG_IMAGE_PATH } from '../constants/metadata'
 
 const useStyles = makeStyles(theme => {
   return {
     root: {
       display: 'flex',
       justifyContent: 'center',
+      zIndex: -1,
       '& img': {
         marginBottom: 0,
         width: '100%',
-        maxHeight: 850,
+        maxHeight: 900,
         [theme.breakpoints.down('sm')]: {
-          maxHeight: 650,
+          maxHeight: 700,
         },
       },
     },
   }
 })
 
-interface CoverImageBoxProps {
-  fileName?: string
-}
-
-const CoverImageBox: FC<CoverImageBoxProps> = ({ fileName }) => {
+const CoverImageBox = props => {
   const classes = useStyles()
+  const handleLoad = () => props.parallaxController.update()
   return (
     <Box className={classes.root}>
-      <img src={`./images/${fileName || 'bg-image.jpg'}`} />
+      <img src={BG_IMAGE_PATH} onLoad={handleLoad} />
     </Box>
   )
 }
 
-export default CoverImageBox
+export default withController(CoverImageBox)

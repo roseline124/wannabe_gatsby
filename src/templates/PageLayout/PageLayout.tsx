@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     display: 'flex',
     flexFlow: 'column',
     minHeight: '100vh',
+    backgroundColor: 'white',
   },
   body: {
     flexGrow: 1,

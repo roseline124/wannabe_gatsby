@@ -5,11 +5,12 @@ import { makeStyles } from '@material-ui/core/styles'
 import { PostListItemFragment } from 'generated/graphql'
 import PostList from '../components/PostList'
 
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles(() => {
   return {
     root: {
       width: '100%',
       position: 'relative',
+      backgroundColor: 'white',
     },
   }
 })

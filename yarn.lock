@@ -12738,6 +12738,13 @@ react-refresh@^0.7.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.7.2.tgz#f30978d21eb8cac6e2f2fde056a7d04f6844dd50"
   integrity sha512-u5l7fhAJXecWUJzVxzMRU2Zvw8m4QmDNHlTrT5uo3KBlYBhmChd7syAakBoay1yIiVhx/8Fi7a6v6kQZfsw81Q==
 
+react-scroll-parallax@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/react-scroll-parallax/-/react-scroll-parallax-2.3.3.tgz#1666b0cd7f0ae45e503c4d247d3b1e6ce4765bca"
+  integrity sha512-cCFuQEXz35/4m6DRGtKeBVMBsk9VmZLTxzIJENzgHFBpe6YtyMYnjHt569LqsYarIwRE6py7KaKaY4FAG27+6A==
+  dependencies:
+    prop-types "^15.5.10"
+
 react-side-effect@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-1.2.0.tgz#0e940c78faba0c73b9b0eba9cd3dda8dfb7e7dae"

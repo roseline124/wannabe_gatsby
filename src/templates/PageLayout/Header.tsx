@@ -29,6 +29,9 @@ const useStyles = makeStyles(theme => {
       paddingTop: 20,
       paddingBottom: 20,
       width: '100%',
+      position: 'fixed',
+      zIndex: 10,
+      backgroundColor: 'white',
     },
     navContainer: {
       display: 'flex',
@@ -122,7 +125,6 @@ const Header = (props: HeaderProps) => {
   const { siteMetadata } = props
   const classes = useStyles()
   const [avatarURL, setAvatarURL] = useState(null)
-
   const [anchorEl, setAnchorEl] = useState(null)
 
   const handleClick = event => {

@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { graphql } from 'gatsby'
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 
 import { IndexPageQuery } from 'generated/graphql'
 import CoverImageBox from '../components/CoverImageBox'
@@ -13,12 +14,16 @@ interface IndexPageProps {
 const IndexPage: FC<IndexPageProps> = ({ data }) => {
   const posts = data?.allMarkdownRemark?.edges.map(edge => edge.node)
   return (
-    <div>
-      <PageLayout>
-        <CoverImageBox />
-        <PostListLayout posts={posts} />
-      </PageLayout>
-    </div>
+    <ParallaxProvider>
+      <div>
+        <PageLayout>
+          <CoverImageBox />
+          <Parallax y={[0, -100]} tagOuter="figure">
+            <PostListLayout posts={posts} />
+          </Parallax>
+        </PageLayout>
+      </div>
+    </ParallaxProvider>
   )
 }
 
