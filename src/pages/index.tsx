@@ -14,7 +14,7 @@ interface IndexPageProps {
 
 const IndexPage: FC<IndexPageProps> = ({ data }) => {
   const posts = data?.allMarkdownRemark?.edges.map(edge => edge.node)
-  const parallaxY = isSMDown ? [60, -100] : [0, -100]
+  const parallaxY = isSMDown() ? [60, -100] : [0, -100]
   return (
     <ParallaxProvider>
       <div>

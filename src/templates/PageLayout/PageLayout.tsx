@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { withController } from 'react-scroll-parallax'
 import { Waypoint } from 'react-waypoint'
 import { Box } from '@material-ui/core'
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
@@ -38,13 +39,15 @@ const pageLayoutQueryDoc = graphql`
   }
 `
 
-const PageLayout = ({ children }) => {
+const PageLayout = props => {
   const classes = useStyles()
   const [headerClassName, setHeaderClassName] = useState<string>(null)
+  const { children, parallaxController } = props
+  const handleLoad = () => parallaxController.update()
 
   return (
     <ThemeProvider theme={theme}>
-      <Box className={classes.root}>
+      <Box className={classes.root} onLoad={handleLoad}>
         <StaticQuery
           query={pageLayoutQueryDoc}
           render={data => (
@@ -68,4 +71,4 @@ const PageLayout = ({ children }) => {
   )
 }
 
-export default PageLayout
+export default withController(PageLayout)
