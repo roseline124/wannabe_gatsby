@@ -8,6 +8,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import Header from './Header'
 import Footer from './Footer'
 import theme from '../../style/theme'
+import { isSMDown } from '../../style/utils'
 
 const useStyles = makeStyles({
   root: {
@@ -44,6 +45,7 @@ const PageLayout = props => {
   const [headerClassName, setHeaderClassName] = useState<string>(null)
   const { children, parallaxController } = props
   const handleLoad = () => parallaxController.update()
+  const topOffset = isSMDown() ? '-150px' : '-500px'
 
   return (
     <ThemeProvider theme={theme}>
@@ -53,7 +55,7 @@ const PageLayout = props => {
           render={data => (
             <>
               <Waypoint
-                topOffset="-500px"
+                topOffset={topOffset}
                 onLeave={() => setHeaderClassName(classes.header)}
                 onEnter={() => setHeaderClassName(null)}
               />
