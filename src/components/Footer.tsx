@@ -4,8 +4,8 @@ import { makeStyles } from '@material-ui/core/styles'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 
-import { SiteSiteMetadata } from 'generated/graphql'
-import { GITHUB_HOMEPAGE } from '../../constants/github'
+import { SiteSiteMetadata } from '../../generated/graphql'
+import { GITHUB_HOMEPAGE } from '../constants/github'
 
 const useStyles = makeStyles(theme => {
   return {

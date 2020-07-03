@@ -4,7 +4,8 @@ import { ParallaxProvider, Parallax } from 'react-scroll-parallax'
 
 import { IndexPageQuery } from 'generated/graphql'
 import CoverImageBox from '../components/CoverImageBox'
-import PageLayout, { Footer } from '../templates/PageLayout'
+import Footer from '../components/Footer'
+import PageLayout from '../templates/PageLayout'
 import PostListLayout from '../templates/PostListLayout'
 import { isSMDown } from '../style/utils'
 

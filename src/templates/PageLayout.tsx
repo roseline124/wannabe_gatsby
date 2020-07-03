@@ -3,12 +3,12 @@ import { withController, ParallaxContextValue } from 'react-scroll-parallax'
 import { Waypoint } from 'react-waypoint'
 import { Box } from '@material-ui/core'
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
-import { StaticQuery, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
-import Header from './Header'
-import Footer from './Footer'
-import theme from '../../style/theme'
-import { isSMDown } from '../../style/utils'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+import theme from '../style/theme'
+import { isSMDown } from '../style/utils'
 import { SiteSiteMetadata } from 'generated/graphql'
 
 const useStyles = makeStyles({
