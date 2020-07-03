@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { graphql } from 'gatsby'
 
 import { IndexPageQuery } from 'generated/graphql'
+import CoverImageBox from '../components/CoverImageBox'
 import PageLayout from '../templates/PageLayout'
 import PostListLayout from '../templates/PostListLayout'
 
@@ -14,6 +15,7 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
   return (
     <div>
       <PageLayout>
+        <CoverImageBox />
         <PostListLayout posts={posts} />
       </PageLayout>
     </div>

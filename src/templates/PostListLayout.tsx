@@ -8,12 +8,8 @@ import PostList from '../components/PostList'
 const useStyles = makeStyles(theme => {
   return {
     root: {
-      padding: '50px 0',
       width: '100%',
       position: 'relative',
-      [theme.breakpoints.down('sm')]: {
-        padding: '20px 0',
-      },
     },
   }
 })

@@ -63,7 +63,7 @@ A quick look at the top-level files and directories in this project.
 - **posts**: markdown files.
 - **utils**: my tool box.
 
-4. **static**: static files (images, favicon) for website.
+4. **static**: static files (images, favicon) for website. static folder in root directory is automatically copied in public folder. [refer this.](https://www.gatsbyjs.org/docs/importing-assets-into-files/)
 
 ## 💫 Deploy
 

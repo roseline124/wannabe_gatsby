@@ -27,18 +27,6 @@ const pageLayoutQueryDoc = graphql`
         description
       }
     }
-
-    bgImage: file(relativePath: { eq: "images/bg-image.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000, maxHeight: 800) {
-          base64
-          src
-          presentationWidth
-          presentationHeight
-          srcSet
-        }
-      }
-    }
   }
 `
 
