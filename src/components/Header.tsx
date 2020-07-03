@@ -193,7 +193,7 @@ const Header = (props: HeaderProps) => {
             <IconButton
               component="span"
               onClick={handleClick}
-              className={classes.menuIcon}
+              className={clsx(classes.menuIcon)}
             >
               <MenuIcon />
             </IconButton>

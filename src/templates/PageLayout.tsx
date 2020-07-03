@@ -3,7 +3,6 @@ import { withController, ParallaxContextValue } from 'react-scroll-parallax'
 import { Waypoint } from 'react-waypoint'
 import { Box } from '@material-ui/core'
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
-import { graphql } from 'gatsby'
 
 import Footer from '../components/Footer'
 import Header from '../components/Header'
@@ -21,7 +20,7 @@ const useStyles = makeStyles({
   },
   header: {
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    '& p, a': {
+    '& p, a, span': {
       color: 'white',
     },
   },
@@ -29,17 +28,6 @@ const useStyles = makeStyles({
     flexGrow: 1,
   },
 })
-
-const pageLayoutQueryDoc = graphql`
-  query PageLayoutQuery {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-  }
-`
 
 interface PageLayoutProps extends ParallaxContextValue {
   includeHeader?: boolean
