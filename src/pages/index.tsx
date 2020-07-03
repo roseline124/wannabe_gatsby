@@ -33,6 +33,7 @@ const IndexPage: FC<IndexPageProps> = ({ data }) => {
                 : smDown
                 ? 'calc(100vh - 300px)'
                 : '100vh',
+              marginBottom: 0,
             }}
           >
             <PostListLayout posts={posts} />
