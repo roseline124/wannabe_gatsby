@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { withController } from 'react-scroll-parallax'
+import { withController, ParallaxContextValue } from 'react-scroll-parallax'
 import { Waypoint } from 'react-waypoint'
 import { Box } from '@material-ui/core'
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
@@ -9,6 +9,7 @@ import Header from './Header'
 import Footer from './Footer'
 import theme from '../../style/theme'
 import { isSMDown } from '../../style/utils'
+import { SiteSiteMetadata } from 'generated/graphql'
 
 const useStyles = makeStyles({
   root: {
@@ -40,34 +41,40 @@ const pageLayoutQueryDoc = graphql`
   }
 `
 
-const PageLayout = props => {
+interface PageLayoutProps extends ParallaxContextValue {
+  includeHeader?: boolean
+  includeFooter?: boolean
+  siteMetadata?: SiteSiteMetadata
+}
+
+const PageLayout: React.FC<PageLayoutProps> = ({
+  children,
+  parallaxController,
+  siteMetadata,
+  includeHeader = true,
+  includeFooter = true,
+}) => {
   const classes = useStyles()
   const [headerClassName, setHeaderClassName] = useState<string>(null)
-  const { children, parallaxController } = props
   const handleLoad = () => parallaxController.update()
   const topOffset = isSMDown() ? '-150px' : '-500px'
 
   return (
     <ThemeProvider theme={theme}>
       <Box className={classes.root} onLoad={handleLoad}>
-        <StaticQuery
-          query={pageLayoutQueryDoc}
-          render={data => (
-            <>
-              <Waypoint
-                topOffset={topOffset}
-                onLeave={() => setHeaderClassName(classes.header)}
-                onEnter={() => setHeaderClassName(null)}
-              />
-              <Header
-                siteMetadata={data.site.siteMetadata}
-                className={headerClassName}
-              />
-              <Box className={classes.body}>{children}</Box>
-              <Footer siteMetadata={data.site.siteMetadata} />
-            </>
-          )}
-        />
+        {includeHeader && (
+          <>
+            <Waypoint
+              topOffset={topOffset}
+              onLeave={() => setHeaderClassName(classes.header)}
+              onEnter={() => setHeaderClassName(null)}
+            />
+            <Header siteMetadata={siteMetadata} className={headerClassName} />
+          </>
+        )}
+
+        <Box className={classes.body}>{children}</Box>
+        {includeFooter && <Footer siteMetadata={siteMetadata} />}
       </Box>
     </ThemeProvider>
   )

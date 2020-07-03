@@ -69,10 +69,10 @@ const Footer = (props: FooterProps) => {
       <Box className={classes.root}>
         <Box>
           <Typography variant="h1" className={classes.title}>
-            {siteMetadata.title}
+            {siteMetadata?.title}
           </Typography>
           <Typography className={classes.description} variant="body1">
-            {siteMetadata.description}
+            {siteMetadata?.description}
           </Typography>
         </Box>
         <Box>
