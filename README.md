@@ -20,6 +20,9 @@ roseline's blog.
 - [x] pagelayout - footer
 - [x] split pagelayout header as file
 - [x] add post list
+- [x] add cover image
+- [x] add parallax scroll to post list
+- [ ] disable scroll bounce effect bottom in iOS
 
 2. query and route
 
