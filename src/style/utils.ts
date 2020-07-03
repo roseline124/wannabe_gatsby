@@ -18,3 +18,8 @@ export const isSMDown = () => {
   const theme = useTheme()
   return useMediaQuery(theme.breakpoints.down('sm'))
 }
+
+export const isXSDown = () => {
+  const theme = useTheme()
+  return useMediaQuery(theme.breakpoints.down('xs'))
+}

@@ -7,7 +7,7 @@ import CoverImageBox from '../components/CoverImageBox'
 import Footer from '../components/Footer'
 import PageLayout from '../templates/PageLayout'
 import PostListLayout from '../templates/PostListLayout'
-import { isSMDown } from '../style/utils'
+import { isSMDown, isXSDown } from '../style/utils'
 
 interface IndexPageProps {
   data: IndexPageQuery
@@ -16,17 +16,23 @@ interface IndexPageProps {
 const IndexPage: FC<IndexPageProps> = ({ data }) => {
   const posts = data?.allMarkdownRemark?.edges.map(edge => edge.node)
   const siteMetadata = data.site.siteMetadata
-  const parallaxY = isSMDown() ? [60, -100] : [0, -100]
+  const xsDown = isXSDown()
+  const smDown = isSMDown()
+  const startY = xsDown ? 60 : smDown ? 30 : 0
   return (
     <ParallaxProvider>
       <div>
         <PageLayout includeFooter={false} siteMetadata={siteMetadata}>
           <CoverImageBox />
           <Parallax
-            y={parallaxY}
+            y={[startY, -100]}
             tagOuter="figure"
             styleOuter={{
-              maxHeight: isSMDown() ? 'calc(100vh - 200px)' : '100vh',
+              maxHeight: xsDown
+                ? 'calc(100vh - 250px)'
+                : smDown
+                ? 'calc(100vh - 300px)'
+                : '100vh',
             }}
           >
             <PostListLayout posts={posts} />
