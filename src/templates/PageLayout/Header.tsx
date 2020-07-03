@@ -33,6 +33,10 @@ const useStyles = makeStyles(theme => {
       position: 'fixed',
       zIndex: 10,
       backgroundColor: 'white',
+      [theme.breakpoints.down('sm')]: {
+        paddingTop: 10,
+        paddingBottom: 10,
+      },
     },
     navContainer: {
       display: 'flex',
