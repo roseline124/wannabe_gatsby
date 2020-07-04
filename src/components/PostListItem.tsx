@@ -6,7 +6,7 @@ import { graphql } from 'gatsby'
 
 import { getEllipsisProps } from '../style/utils'
 import { PostListItemFragment } from 'generated/graphql'
-import thumbnail from '../assets/images/flutter-water-dashboard.png'
+// import thumbnail from '../assets/images/flutter-water-dashboard.png'
 
 const useStyles = makeStyles(theme => {
   return {
@@ -98,7 +98,7 @@ const PostListItem: FC<PostListItemProps> = ({ post }) => {
         <Box display="flex">
           <Box className={classes.thumbnailWrapper}>
             <SimpleImg
-              src={thumbnail}
+              src={require(`../assets/${post.frontmatter.thumbnail}`)}
               width="100%"
               height="100%"
               className={classes.thumbnailImgae}
@@ -162,6 +162,7 @@ graphql`
       slug
       title
       category
+      thumbnail
     }
     internal {
       content

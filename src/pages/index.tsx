@@ -42,6 +42,7 @@ export const pageQuery = graphql`
             slug
             title
             category
+            thumbnail
           }
           internal {
             content
