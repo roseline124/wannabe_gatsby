@@ -22,13 +22,14 @@ roseline's blog.
 - [x] add post list
 - [x] add cover image
 - [x] add parallax scroll to post list
+- [x] add thumbnail to post list
 - [ ] add pagination
 
 2. query and route
 
 - [x] query posts
 - [x] add link to post list
-- [ ] add thumbnail to frontmatter
+- [x] add thumbnail to frontmatter
 - [ ] use fragment in index.tsx (PostListItem fragment)
 
 ### post detail page

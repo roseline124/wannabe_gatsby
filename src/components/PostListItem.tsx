@@ -6,7 +6,6 @@ import { graphql } from 'gatsby'
 
 import { getEllipsisProps } from '../style/utils'
 import { PostListItemFragment } from 'generated/graphql'
-// import thumbnail from '../assets/images/flutter-water-dashboard.png'
 
 const useStyles = makeStyles(theme => {
   return {
