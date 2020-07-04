@@ -9,23 +9,29 @@ import Header from '../components/Header'
 import theme from '../style/theme'
 import { isSMDown } from '../style/utils'
 
-const useStyles = makeStyles({
-  root: {
-    width: '100%',
-    display: 'flex',
-    flexFlow: 'column',
-    minHeight: '100vh',
-    backgroundColor: 'white',
-  },
-  header: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    '& p, a, span': {
-      color: 'white',
+const useStyles = makeStyles(theme => {
+  return {
+    root: {
+      width: '100%',
+      display: 'flex',
+      flexFlow: 'column',
+      minHeight: '100vh',
+      backgroundColor: 'white',
     },
-  },
-  body: {
-    flexGrow: 1,
-  },
+    header: {
+      backgroundColor: 'rgba(0, 0, 0, 0.7)',
+      '& p, a, span': {
+        color: 'white',
+      },
+    },
+    body: {
+      marginTop: 100,
+      flexGrow: 1,
+      [theme.breakpoints.down('sm')]: {
+        marginTop: 70,
+      },
+    },
+  }
 })
 
 const PageLayoutQuery = graphql`

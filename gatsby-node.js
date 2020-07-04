@@ -3,6 +3,24 @@
  */
 
 const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === `MarkdownRemark`) {
+    const slug = createFilePath({ node, getNode, basePath: 'pages' })
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug,
+    })
+    createNodeField({
+      node,
+      name: `category`,
+      value: node.frontmatter.category,
+    })
+  }
+}
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage, createNodeField } = actions
@@ -17,15 +35,15 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         edges {
           node {
             id
+            html
             frontmatter {
               title
               date(formatString: "yyyy년 MM월 DD일")
               slug
               category
             }
-            excerpt(pruneLength: 700)
             internal {
-              content
+              type
             }
           }
         }
@@ -41,20 +59,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   if (result.data) {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-      if (node.internal.type === `MarkdownRemark`) {
-        const slug = createFilePath({ node, getNode, basePath: `pages` })
-        createNodeField({
-          node,
-          name: `slug`,
-          value: slug,
-        })
-        createNodeField({
-          node,
-          name: `category`,
-          value: category,
-        })
-      }
-
       const category = node.frontmatter.category
       const slug = node.frontmatter.slug
       const defaultCategory = 'post'
@@ -68,6 +72,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         context: {
           slug,
           category: category || defaultCategory,
+          html: node.html,
         },
       })
     })

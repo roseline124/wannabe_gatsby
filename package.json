@@ -7,6 +7,7 @@
   "exports": false,
   "scripts": {
     "build": "gatsby build",
+    "clean": "gatsby clean",
     "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
