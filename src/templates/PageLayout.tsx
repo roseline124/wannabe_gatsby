@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { withController, ParallaxContextValue } from 'react-scroll-parallax'
 import { Waypoint } from 'react-waypoint'
 import { Box } from '@material-ui/core'
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
@@ -29,27 +28,25 @@ const useStyles = makeStyles({
   },
 })
 
-interface PageLayoutProps extends ParallaxContextValue {
+interface PageLayoutProps {
   includeHeader?: boolean
   includeFooter?: boolean
-  siteMetadata?: SiteSiteMetadata
+  siteMetadata: SiteSiteMetadata
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({
   children,
-  parallaxController,
   siteMetadata,
   includeHeader = true,
   includeFooter = true,
 }) => {
   const classes = useStyles()
   const [headerClassName, setHeaderClassName] = useState<string>(null)
-  const handleLoad = () => parallaxController.update()
   const topOffset = isSMDown() ? '-150px' : '-500px'
 
   return (
     <ThemeProvider theme={theme}>
-      <Box className={classes.root} onLoad={handleLoad}>
+      <Box className={classes.root}>
         {includeHeader && (
           <>
             <Waypoint
@@ -68,4 +65,4 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   )
 }
 
-export default withController(PageLayout)
+export default PageLayout

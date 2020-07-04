@@ -29,6 +29,7 @@ roseline's blog.
 - [x] query posts
 - [ ] add link to post list
 - [ ] add thumbnail to frontmatter
+- [ ] use fragment in index.tsx (PostListItem fragment)
 
 ### post detail page
 
