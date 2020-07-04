@@ -1,7 +1,8 @@
 import React from 'react'
 import { Box } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
-import { BG_IMAGE_PATH } from '../constants/metadata'
+// @ts-ignore
+import bgImage from '../../static/images/bg-image.jpg'
 
 const useStyles = makeStyles(theme => {
   return {
@@ -25,7 +26,7 @@ const CoverImageBox = () => {
   const classes = useStyles()
   return (
     <Box className={classes.root}>
-      <img src={BG_IMAGE_PATH} />
+      <img src={bgImage} />
     </Box>
   )
 }

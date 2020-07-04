@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 import { Waypoint } from 'react-waypoint'
 import { Box } from '@material-ui/core'
 import { makeStyles, ThemeProvider } from '@material-ui/core/styles'
+import { graphql, StaticQuery } from 'gatsby'
 
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import theme from '../style/theme'
 import { isSMDown } from '../style/utils'
-import { SiteSiteMetadata } from 'generated/graphql'
 
 const useStyles = makeStyles({
   root: {
@@ -28,15 +28,24 @@ const useStyles = makeStyles({
   },
 })
 
+const PageLayoutQuery = graphql`
+  query PageLayout {
+    site {
+      siteMetadata {
+        title
+        description
+      }
+    }
+  }
+`
+
 interface PageLayoutProps {
   includeHeader?: boolean
   includeFooter?: boolean
-  siteMetadata: SiteSiteMetadata
 }
 
 const PageLayout: React.FC<PageLayoutProps> = ({
   children,
-  siteMetadata,
   includeHeader = true,
   includeFooter = true,
 }) => {
@@ -47,19 +56,32 @@ const PageLayout: React.FC<PageLayoutProps> = ({
   return (
     <ThemeProvider theme={theme}>
       <Box className={classes.root}>
-        {includeHeader && (
-          <>
-            <Waypoint
-              topOffset={topOffset}
-              onLeave={() => setHeaderClassName(classes.header)}
-              onEnter={() => setHeaderClassName(null)}
-            />
-            <Header siteMetadata={siteMetadata} className={headerClassName} />
-          </>
-        )}
+        <StaticQuery
+          query={PageLayoutQuery}
+          render={data => {
+            const siteMetadata = data.site.siteMetadata
+            return (
+              <>
+                {includeHeader && (
+                  <>
+                    <Waypoint
+                      topOffset={topOffset}
+                      onLeave={() => setHeaderClassName(classes.header)}
+                      onEnter={() => setHeaderClassName(null)}
+                    />
+                    <Header
+                      siteMetadata={siteMetadata}
+                      className={headerClassName}
+                    />
+                  </>
+                )}
 
-        <Box className={classes.body}>{children}</Box>
-        {includeFooter && <Footer siteMetadata={siteMetadata} />}
+                <Box className={classes.body}>{children}</Box>
+                {includeFooter && <Footer siteMetadata={siteMetadata} />}
+              </>
+            )
+          }}
+        />
       </Box>
     </ThemeProvider>
   )

@@ -1,5 +1,5 @@
 ---
-slug: 'posts/HelloWorld2'
+slug: 'Hello-World2'
 date: '2020-06-30'
 title: 'post2'
 ---

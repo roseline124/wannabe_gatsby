@@ -18,8 +18,9 @@ import { SiteSiteMetadata } from 'generated/graphql'
 import {
   title as defaultTitle,
   description as defaultDescription,
-  PROFILE_IMAGE_PATH,
 } from '../constants/metadata'
+// @ts-ignore
+import profileImage from '../../static/images/profile-image.jpeg'
 
 const useStyles = makeStyles(theme => {
   return {
@@ -138,15 +139,14 @@ const Header = (props: HeaderProps) => {
   const handleClose = () => {
     setAnchorEl(null)
   }
-
   return (
     <Box className={clsx(classes.navBar, className)}>
       <Container maxWidth="lg" className={classes.navContainer}>
         <Link className={classes.homeLink} to="/">
           <Box className={classes.avatarWrapper}>
             <Avatar
-              alt="github profile image"
-              src={PROFILE_IMAGE_PATH}
+              alt="profile-image"
+              src={profileImage}
               className={classes.avatar}
               classes={{ img: classes.avatarImg }}
             />
