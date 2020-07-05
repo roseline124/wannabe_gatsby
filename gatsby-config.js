@@ -43,7 +43,21 @@ module.exports = {
         name: `assets`,
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 600,
+              showCaptions: true,
+              wrapperStyle: () => `text-align: center;`,
+            },
+          },
+        ],
+      },
+    },
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {

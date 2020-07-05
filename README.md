@@ -24,6 +24,7 @@ roseline's blog.
 - [x] add parallax scroll to post list
 - [x] add thumbnail to post list
 - [ ] add pagination
+- [ ] add category link to 'in category'
 
 2. query and route
 

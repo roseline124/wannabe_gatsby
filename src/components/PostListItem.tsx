@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Box, Typography, Hidden, Link } from '@material-ui/core'
+import { Box, Typography, Link } from '@material-ui/core'
 import { SimpleImg } from 'react-simple-img'
 import { makeStyles } from '@material-ui/core/styles'
 import { graphql } from 'gatsby'
@@ -59,22 +59,17 @@ const useStyles = makeStyles(theme => {
     },
     thumbnailWrapper: {
       maxWidth: 200,
-      width: '100%',
-      height: '100%',
+      maxHeight: 200,
       marginRight: 20,
       [theme.breakpoints.down('sm')]: {
         marginRight: 10,
         maxWidth: 100,
+        maxHeight: 100,
       },
     },
     thumbnailImgae: {
       borderRadius: 5,
-      maxHeight: 200,
-      height: '100%',
       '& img': { borderRadius: 5 },
-      [theme.breakpoints.down('sm')]: {
-        maxHeight: 100,
-      },
     },
   }
 })
@@ -110,41 +105,21 @@ const PostListItem: FC<PostListItemProps> = ({ post }) => {
             <Typography variant="body1" className={classes.content}>
               {post.excerpt}
             </Typography>
-            <Hidden smDown>
-              <Box className={classes.metaDataWrapper}>
-                <Typography variant="body2">{post.frontmatter.date}</Typography>
-                {post.frontmatter.category && (
-                  <Box display="flex">
-                    <Typography variant="body2" className={classes.inCategory}>
-                      In
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      className={classes.categoryName}
-                    >
-                      {post.frontmatter.category}
-                    </Typography>
-                  </Box>
-                )}
-              </Box>
-            </Hidden>
           </Box>
         </Box>
-        <Hidden mdUp>
-          <Box className={classes.metaDataWrapper}>
-            <Typography variant="body2">{post.frontmatter.date}</Typography>
-            {post.frontmatter.category && (
-              <Box display="flex">
-                <Typography variant="body2" className={classes.inCategory}>
-                  In
-                </Typography>
-                <Typography variant="body2" className={classes.categoryName}>
-                  {post.frontmatter.category}
-                </Typography>
-              </Box>
-            )}
-          </Box>
-        </Hidden>
+        <Box className={classes.metaDataWrapper}>
+          <Typography variant="body2">{post.frontmatter.date}</Typography>
+          {post.frontmatter.category && (
+            <Box display="flex">
+              <Typography variant="body2" className={classes.inCategory}>
+                In
+              </Typography>
+              <Typography variant="body2" className={classes.categoryName}>
+                {post.frontmatter.category}
+              </Typography>
+            </Box>
+          )}
+        </Box>
       </Link>
     </Box>
   )

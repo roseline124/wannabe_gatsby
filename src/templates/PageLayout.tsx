@@ -57,7 +57,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({
 }) => {
   const classes = useStyles()
   const [headerClassName, setHeaderClassName] = useState<string>(null)
-  const topOffset = isSMDown() ? '-150px' : '-500px'
 
   return (
     <ThemeProvider theme={theme}>
@@ -71,7 +70,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({
                 {includeHeader && (
                   <>
                     <Waypoint
-                      topOffset={topOffset}
+                      topOffset="-50px"
                       onLeave={() => setHeaderClassName(classes.header)}
                       onEnter={() => setHeaderClassName(null)}
                     />
