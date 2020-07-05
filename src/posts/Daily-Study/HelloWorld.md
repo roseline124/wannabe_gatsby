@@ -54,7 +54,7 @@ thumbnail: 'images/pycon2019.jpg'
 
 <br>
 
-<img src="../assets/images/190818_01.png" title="_피플펀드 개발자님_">
+<img src="../../assets/images/190818_01.png" title="_피플펀드 개발자님_">
 
 <br>
 <br>
@@ -64,7 +64,7 @@ thumbnail: 'images/pycon2019.jpg'
 
 <br>
 
-<img src="../assets/images/190818_02.png" title="_개발자님_">
+<img src="../../assets/images/190818_02.png" title="_개발자님_">
 
 <br>
 
@@ -87,7 +87,7 @@ python, pandas를 이용해 통계를 내고 버스 시간을 예측했던 사�
 
 <br>
 
-<img src="../assets/images/190818_03.png" title="_개발자님_">
+<img src="../../assets/images/190818_03.png" title="_개발자님_">
 
 <br>
 <br>

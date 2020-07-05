@@ -83,9 +83,7 @@ const PostListItem: FC<PostListItemProps> = ({ post }) => {
 
   const category = post.frontmatter.category
   const slug = post.frontmatter.slug
-  const defaultCategory = 'post'
-
-  const path = `/${category || defaultCategory}/${slug}`
+  const path = `/${category || ''}/${slug}`
   return (
     <Box className={classes.root}>
       <Link href={path} underline="none" className={classes.link}>

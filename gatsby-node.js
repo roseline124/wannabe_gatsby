@@ -67,17 +67,14 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       const category = node.frontmatter.category
       const slug = node.frontmatter.slug
-      const defaultCategory = 'post'
-      const path = category
-        ? `/${category}/${slug}`
-        : `/${defaultCategory}/${slug}`
+      const path = `/${category || ''}/${slug}`
       // component has to be used in page component
       createPage({
         path,
         component: PostLayout,
         context: {
           slug,
-          category: category || defaultCategory,
+          category,
           html: node.html,
         },
       })
