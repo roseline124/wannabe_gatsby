@@ -1,7 +1,8 @@
 ---
-slug: 'posts/HelloWorld3'
+slug: 'Hello-World3'
 date: '2020-07-01'
 title: 'post3'
+thumbnail: 'images/thumbnail.png'
 ---
 
 ### Test

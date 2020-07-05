@@ -1,19 +1,35 @@
 import React from 'react'
+import { Box, Container } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles'
+import PageLayout from './PageLayout'
 
-const PostLayout = () => {
-  // const { markdownRemark } = data
-  // const { frontmatter, html } = markdownRemark
+const useStyles = makeStyles({
+  root: {
+    '& p, h1, h2, h3': {
+      fontFamily: 'Noto Sans KR',
+    },
+    '& h1, h2, h3': {
+      fontWeight: 500,
+    },
+    '& .gatsby-resp-image-figcaption': {
+      marginTop: 10,
+    },
+  },
+})
+
+const PostLayout = ({ pageContext }) => {
+  const classes = useStyles()
   return (
-    <div className="blog-post-container">
-      <div className="blog-post">
-        {/* <h1>{frontmatter.title}</h1>
-        <h2>{frontmatter.date}</h2>
-        <div
-          className="blog-post-content"
-          dangerouslySetInnerHTML={{ __html: html }}
-        /> */}
-      </div>
-    </div>
+    <PageLayout>
+      <Container maxWidth="lg">
+        <Box padding="30px 0">
+          <div
+            dangerouslySetInnerHTML={{ __html: pageContext.html }}
+            className={classes.root}
+          />
+        </Box>
+      </Container>
+    </PageLayout>
   )
 }
 

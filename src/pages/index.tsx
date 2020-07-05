@@ -12,10 +12,9 @@ interface IndexPageProps {
 
 const IndexPage: FC<IndexPageProps> = ({ data }) => {
   const posts = data?.allMarkdownRemark?.edges.map(edge => edge.node)
-  const siteMetadata = data.site.siteMetadata
   return (
     <div>
-      <PageLayout siteMetadata={siteMetadata}>
+      <PageLayout>
         <CoverImageBox />
         <PostListLayout posts={posts} />
       </PageLayout>
@@ -29,13 +28,6 @@ export default IndexPage
 // pageQuery에 넣어야 graphql 실행됨
 export const pageQuery = graphql`
   query IndexPage {
-    site {
-      siteMetadata {
-        title
-        description
-      }
-    }
-
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 100
@@ -50,6 +42,7 @@ export const pageQuery = graphql`
             slug
             title
             category
+            thumbnail
           }
           internal {
             content
